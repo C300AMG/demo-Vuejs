@@ -1,0 +1,29 @@
++Đầu tiên trang web này load ở file index.html
++ trong index.html nhận id là app
++ id="app" này được khai báo trong file main.js bằng el:"#app"
++ trong thư mục main.js nó import  import App from './App.vue'==> App.vue
++Bây giờ trong file App.vue là toàn bộ dữ liệu ngoài trang chủ (indexx)
+
+
+//===================================================================================================//
+
+
+
+
+//=========================================File App.vue==========================================================//
+COMPONENT : mối component được quản lý bởi 1 file App.vue và chứa đựng 1 thành phần trong 1 trang web
+
+- Để tạo ra componenent để quản lý bao nhiêu phần trong 1 trang web, thì ta tạo bấy nhiêu file.vue
+- cách tạo :
+Bước 1 Đầu tiên phải có một cái component cha (Đây là phần body bao quát tất cả thành phần của trang)
+Bước 2 tạo một file component.vue -> dùng phím tắt def để viết toàn bộ cấu trúc của một componenent
+        - trong file component này ta có thể viết chức năng css html tất cả những gì 
+Bước  3 trong componenent cha khai báo thêm những thuộc tính để nó nhận được file componenent con :
+    - trong phần script :bởi vì bên file componenent con nó export mặc định, cho nên bên CPN cha có thể import file con vào 
+        cú pháp : import tên file From "./đường dẫn hiện tại/thư mục componenent file con"
+    - trong phần template :   <componentHeader></componentHeader> đóng và mở thẻ giống như HTML 
+    - trong data khai báo đối tượng con để CPN cha biết nó có chứa :componenents : đối tượng CPN con
+
+
+
+
