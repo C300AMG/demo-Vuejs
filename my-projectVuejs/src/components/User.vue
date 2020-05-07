@@ -1,53 +1,58 @@
 <template>
-
-     <div class="user">
-          <p> {{user.email}}</p>
-         <button v-on:click="handleClick" class="delete">x</button>
-     </div>
-
+  <div class="user">
+      <button v-on:click="handleDelete">x</button>
+      <p>{{ user .email}}</p>
+  </div>
 </template>
 
 <script>
 export default {
-    name : "user",
+
+    name:"User",
     props:{
-     user:{
+        user:{
             type:Object,
-             default:null
-     }
+            default:null
+        }
     },
-    data (){
-        return{
+   
+    data() {
+        return {
             
         }
     },
-    methods:{
-        handleClick(e){
-            var data = {
-                id:this.user.id
-            } 
-          console.log('hàm này trong user');
-            this.$emit('deleteUser',data);
-            
-            
-       
-        }
-    }
+    methods: {
+       handleDelete(e){
+           var data ={
+               id : this.user.id
+           }
+           console.log('cái sự kiện handleDelete này là trong component user',e);
+           this.$emit('deleteUser',data);
+       } 
+    },
 
 }
 </script>
 
+
+
+
+
+
+
 <style>
-    .user{
-        position: relative;
-    }
-    .user .delete {
-        position: absolute;
-        right: 0;
-        top: 0;
-       
-    }
-    .user .delete:hover{
-         background: rgb(0, 255, 208)
-    }
+.user{
+    position: relative;
+
+}
+.user button{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: red;
+
+}
+.user button:hover{
+    background-color: blueviolet;
+}
 </style>

@@ -1,59 +1,51 @@
 <template>
-  <div class="list-user">
-     <user 
-     v-for="user  in listUser"
-     v-bind:key="user.id" 
-     v-bind:user="user"
-     v-on:deleteUser="deleteUser"
-     />
-   
-      
-  </div>
+ <div class="list-user">
+  
+    <User 
+    
+        v-for="user in listUser"
+        v-bind:key="user.id"
+        v-bind:user="user" 
+        v-on:deleteUser="deleteUser"
+    />
+    
+ </div>
 </template>
 
 <script>
-
-
-/*
-Bây giờ dữ liệu đều nằm ở data của thằng App, muốn xoá user thì bắt buộc phải xoá ở thằng app
-
-App -> araay user cho list, list chạy vòng for để truyền từng user 1
-
-->thằng user chỉ nhận thằng listuser là thằng cha cho nên khi muốn xoá (sự kiện click)thì nó phải thông báo cho thằng listuser rằng nó muốn xoá .Thằng listUser này nhận thông báo và thực hiện xoá
--> vì listUsser nó vẫn không nắm giữ cái array user đó , thì thằng listUsser phải truyền thông báo đến thằng App rằng thay đổi
-
-
-
-
- */
-import User from './User.vue'
+import User from "./User.vue";
 export default {
-    name : 'list-user',
+    name:"list-user",
+
     props:{
-      listUser:{
-            type: Array,
-            default: []
-      }
+       listUser:{
+           type: Array,
+           default: []
+       }
     },
-    data(){
+    
+    data() {
         return {
-           
+            
         }
     },
+    methods:{
+        deleteUser(data){
+            console.log('Đây là hàm sự kiện tự mình tạo ra componennt ListUser',data);
+            this.$emit('deleteUserEvent',data);
+        }
+    },
+
+
     components:{
-     User
-  },
-  methods:{
-    deleteUser(data){
-    console.log('hàm này ở listUser',data);
-    this.$emit('deleteUserEvent',data);
-    }
+    User,
   }
+
 }
+
 </script>
 
 <style>
-
 .list-user{
   display: flex;
   flex-wrap:wrap ;
